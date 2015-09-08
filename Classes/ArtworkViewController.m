@@ -225,7 +225,7 @@ static UIImage *imageWithContentsOfFile(NSString *path)
 					UITableViewCell *cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:@"EmojiCell"] autorelease];
 					cell.textLabel.text = [[[(NSMutableString *)name autorelease] capitalizedString] stringByAppendingPathExtension:@"png"];
 					cell.textLabel.font = [UIFont systemFontOfSize:12];
-					CGFloat maximumSharpSize = 24;
+					CGFloat maximumSharpSize = 36;
 					CGRect emojiFrame = CGRectMake(0, 0, maximumSharpSize, maximumSharpSize);
 					cell.accessoryView = [[[NSClassFromString(@"UIKeyboardEmojiImageView") alloc] initWithFrame:emojiFrame emojiString:[emoji valueForKey:@"emojiString"]] autorelease];
 					if (!cell.accessoryView)
