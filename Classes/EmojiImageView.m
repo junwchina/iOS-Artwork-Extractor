@@ -37,7 +37,14 @@
 {
 	UIFont *emojiFont = [UIFont fontWithName:@"AppleColorEmoji" size:CGRectGetHeight(self.frame)];
 	NSString *emojiString = [self.emoji valueForKey:@"emojiString"];
-	[emojiString drawAtPoint:CGPointZero withFont:emojiFont];
+
+	// see issue https://github.com/0xced/iOS-Artwork-Extractor/issues/12
+	NSString *version = [UIDevice currentDevice].systemVersion;
+	if (version.intValue < 8) {
+		[emojiString drawAtPoint:CGPointZero withFont:emojiFont];
+	} else {
+		[emojiString drawAtPoint:CGPointMake(0, -5) withFont:emojiFont];
+	}
 }
 
 - (UIImage *) image
